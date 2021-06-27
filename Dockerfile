@@ -69,6 +69,10 @@ ARG BUILD_DEPENDENCIES="              \
         libvncserver-dev              \
         libwebsockets-dev             \
         libwebp-dev                   \
+        libavcodec-dev                \
+        libavutil-dev                 \
+        libswscale-dev                \
+        libavformat-dev               \
         make"
 
 # Do not require interaction during build
@@ -125,6 +129,7 @@ ARG PREFIX_DIR=/usr/local/guacamole
 ENV LC_ALL=C.UTF-8
 ENV LD_LIBRARY_PATH=${PREFIX_DIR}/lib
 ENV GUACD_LOG_LEVEL=info
+ENV PATH="${PREFIX_DIR}/bin:${PATH}"
 
 ARG RUNTIME_DEPENDENCIES="            \
         netcat-openbsd                \
@@ -132,6 +137,7 @@ ARG RUNTIME_DEPENDENCIES="            \
         ghostscript                   \
         fonts-liberation              \
         fonts-dejavu                  \
+        ffmpeg                        \
         xfonts-terminus"
 
 # Do not require interaction during build
